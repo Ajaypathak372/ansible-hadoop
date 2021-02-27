@@ -11,8 +11,7 @@
   register: jdk
 
 - name: Installing Hadoop
-  command:
-    cmd: rpm -ivh https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm --force
+  command: rpm -ivh https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm --force
   when: (hadoop.results | length == 0)
 
 - name: Installing Java (jdk)
