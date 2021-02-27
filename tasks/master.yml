@@ -1,0 +1,27 @@
+---
+
+- name: Configuring core-site.xml file
+  template:
+    src: templates/core-site.xml
+    dest: "{{hadoop_dir}}/core-site.xml"
+
+- name: Configuring hdfs-site.xml file
+  template:
+    src: templates/hdfs-site.xml
+    dest: "{{hadoop_dir}}/hdfs-site.xml"
+
+- block:
+    - name: Formatting NameNode
+      command: "hadoop namenode -format -nonInteractive"
+
+  rescue: 
+    - debug: 
+        msg: "Hadoop Metadata Directory already exists...No need to format"
+
+- name: Starting Hadoop NameNode services
+  shell: "hadoop-daemon.sh stop namenode; hadoop-daemon.sh start namenode"
+
+- name: Registering the IP of the NameNode
+  add_host:
+    name: "DUMMY_HOST"
+    ip: "{{ ansible_default_ipv4.address }}"

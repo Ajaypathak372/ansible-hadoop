@@ -1,0 +1,14 @@
+---
+
+- name: Configuring core-site.xml file
+  template:
+    src: templates/core-site.xml
+    dest: "{{hadoop_dir}}/core-site.xml"
+
+- name: Configuring hdfs-site.xml file
+  template:
+    src: templates/hdfs-site.xml
+    dest: "{{hadoop_dir}}/hdfs-site.xml"
+  
+- name: Starting Hadoop DataNode services
+  shell: "hadoop-daemon.sh stop datanode; hadoop-daemon.sh start datanode"

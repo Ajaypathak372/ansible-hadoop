@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-hadoop
+
+hdfs_dir: "/hdfs_{{ val }}node"

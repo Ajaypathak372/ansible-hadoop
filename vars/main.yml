@@ -1,0 +1,5 @@
+---
+# vars file for ansible-hadoop
+
+hadoop_dir: "/etc/hadoop"
+hdfs_port: 9001

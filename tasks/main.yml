@@ -1,0 +1,20 @@
+---
+# tasks file for ansible-hadoop
+
+- name: Installing Required Softwares for HDFS Clsuter configuration
+  include: install.yml
+  when: ansible_os_family in ['RedHat','CentOS']
+
+- name: Configuring NameNode
+  vars:
+    - master_ip: "0.0.0.0"
+      val: "name"
+  include: master.yml
+  when: (hadoop_type_of_node == 'master') or (hadoop_type_of_node == 'namenode')
+
+- name: Configuring DataNodes
+  vars: 
+    - master_ip: "{{ hostvars['DUMMY_HOST']['ip'] }}"
+      val: "data"
+  include: slave.yml
+  when: (hadoop_type_of_node == 'slave') or (hadoop_type_of_node == 'datanode')
