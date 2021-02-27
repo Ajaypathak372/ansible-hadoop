@@ -24,12 +24,12 @@ Example Playbook
     - hosts: namenode
       gather_facts: true
       roles:
-        - { role: ajaypathak372.ansible-hadoop ,vars: {hadoop_type_of_node: "namenode"}}
+        - { role: Ajaypathak372.ansible-hadoop ,vars: {hadoop_type_of_node: "namenode"}}
 
     - hosts: datanodes
       gather_facts: true
       roles:
-        - { role: ajaypathak372.ansible-hadoop ,vars: {hadoop_type_of_node: "datanode"}}
+        - { role: Ajaypathak372.ansible-hadoop ,vars: {hadoop_type_of_node: "datanode"}}
 
 
 License
