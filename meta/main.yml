@@ -1,5 +1,5 @@
 galaxy_info:
-  author: Ajay Pathak
+  author: "ajaypathak372"
   description: 'A role to setup a Hadoop HDFS Cluster. It configures specified systems(hosts) as NameNode and DataNodes and connect them to form a HDFS Cluster'
 
   # If the issue tracker for your role is not on github, uncomment the

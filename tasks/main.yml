@@ -13,7 +13,7 @@
   when: (hadoop_type_of_node == 'master') or (hadoop_type_of_node == 'namenode')
 
 - name: Configuring DataNodes
-  vars: 
+  vars:
     - master_ip: "{{ hostvars['DUMMY_HOST']['ip'] }}"
       val: "data"
   include: slave.yml
